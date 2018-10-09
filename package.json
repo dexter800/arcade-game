@@ -2,7 +2,7 @@
   "name": "arcade-game",
   "version": "1.0.0",
   "description": "Arcade-game project provided by Udacity ",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "start": "lite",
     "test": "echo \"Error: no test specified\" && exit 1",
