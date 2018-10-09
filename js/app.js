@@ -1,6 +1,9 @@
-var score = 0;
-document.querySelector('.Lnum').innerHTML = score;
-document.querySelector('.Wnum').innerHTML = score;
+// Adding Score and Instruction bord on the top of game UI. 
+
+var winScore = 0;
+var lossScore = 0
+document.querySelector('.Lnum').innerHTML = lossScore;
+document.querySelector('.Wnum').innerHTML = winScore;
 document.querySelector('.Mid').innerHTML = "Press Arrow Key To Play";
 
 // Enemies our player must avoid
@@ -37,21 +40,17 @@ Enemy.prototype.update = function (dt) {
         30 + player.y > this.y) {
         player.x = 200;
         player.y = 380;
-        score++; // resets score back to 0 if player collides with enemy
-        document.querySelector('.Lnum').innerHTML = score;
+        // each time player collision with enemies Loss score increment by 1. 
+        lossScore++;
+
+        // Add Text and Score in Score List
+        document.querySelector('.Lnum').innerHTML = lossScore;
         document.querySelector('.Mid').innerHTML = "You Loss";
         setTimeout(function () {
             document.querySelector('.Mid').innerHTML = "Press Arrow Key To Play";
-        }, 200);
+        }, 500);
 
 
-
-
-        // // toggle background after collision between player and enemies
-        // document.querySelector('.Wnum').style.backgroundColor = 'red';
-        // setTimeout(function () {
-        //     document.querySelector('.Wnum').style.backgroundColor = 'white';
-        // }, 200);
     }
 };
 
@@ -86,12 +85,14 @@ Player.prototype.update = function () {
     if (this.y < 0) {
         this.x = 200;
         this.y = 380;
-        score++;
-        document.querySelector(".Wnum").innerHTML = score;
+        // Each time Player touch water Win score increment by 1. 
+        winScore++;
+        document.querySelector(".Wnum").innerHTML = winScore;
         document.querySelector('.Mid').innerHTML = "You Win";
+
         setTimeout(function () {
             document.querySelector('.Mid').innerHTML = "Press Arrow Key To Play";
-        }, 200);
+        }, 500);
     }
 
 };
@@ -101,6 +102,8 @@ Player.prototype.render = function () {
 };
 
 Player.prototype.handleInput = function (keyPress) {
+
+
     switch (keyPress) {
         case 'left':
             this.x -= this.speed + 50;
@@ -135,7 +138,7 @@ enemyPosition.forEach(function (posY) {
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function (e) {
-
+    console.log(e.keyCode);
 
     var allowedKeys = {
         37: 'left',
