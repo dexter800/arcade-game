@@ -43,6 +43,10 @@ Enemy.prototype.update = function (dt) {
         // each time player collision with enemies Loss score increment by 1. 
         lossScore++;
 
+        const audio = document.querySelector(`audio[data-key = "${e.keyCode}"]`);
+        if (!audio) return;
+        audio.play();
+
         // Add Text and Score in Score List
         document.querySelector('.Lnum').innerHTML = lossScore;
         document.querySelector('.Mid').innerHTML = "You Loss";
@@ -138,7 +142,7 @@ enemyPosition.forEach(function (posY) {
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
 document.addEventListener('keyup', function (e) {
-    console.log(e.keyCode);
+
 
     var allowedKeys = {
         37: 'left',
@@ -149,9 +153,8 @@ document.addEventListener('keyup', function (e) {
     };
     player.handleInput(allowedKeys[e.keyCode]);
 
-    // let newNum = Object.keys(allowedKeys);
-    // console.log(newNum);
-
-    // const audio = document.querySelector(`audio[${} = "${e.keyCode}"]`);
-
+    // Adding sound when you press control keys. 
+    const audio = document.querySelector(`audio[data-key = "${e.keyCode}"]`);
+    if (!audio) return;
+    audio.play();
 });
