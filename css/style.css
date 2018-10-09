@@ -1,10 +1,9 @@
 body {
     text-align: center;
-    width: 50%;
-
+    width: 900px;
     margin: auto;
     border: 10px solid rgb(123, 122, 136);
-
+    font-size: 1.5rem;
     padding: 20px;
 }
 
@@ -16,8 +15,8 @@ section {
 .score {
     display: flex;
     justify-content: center;
-    width: 503px;
-    min-height: 80px;
+    width: 530px;
+    min-height: 40px;
     margin: auto;
     margin-top: 20px;
 
@@ -31,14 +30,10 @@ section {
     margin: 1rem;
     font-size: 1.5rem;
     transition: all .07s ease;
-    width: 10rem;
+    width: 1rem 2rem 1rem;
     text-align: center;
     color: white;
     background: rgba(0, 0, 0, 0.4);
     text-shadow: 0 0 .5rem black;
 
-}
-
-.Mid {
-    width: 50%;
 }
