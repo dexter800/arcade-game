@@ -43,9 +43,7 @@ Enemy.prototype.update = function (dt) {
         // each time player collision with enemies Loss score increment by 1. 
         lossScore++;
 
-        const audio = document.querySelector(`audio[data-key = "${e.keyCode}"]`);
-        if (!audio) return;
-        audio.play();
+
 
         // Add Text and Score in Score List
         document.querySelector('.Lnum').innerHTML = lossScore;
